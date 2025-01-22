@@ -57,7 +57,7 @@ def find_doctor(query, market="en-IN",params=None):
     params = {"q": query, "mkt": market, "count": 5, "customConfig": BING_CUSTOM_CONFIG}
 #    endpoint = BING_CUSTOM_ENDPOINT + "/bingcustomsearch/v7.0/search?q=" + searchTerm + "&customconfig=" + BING_CUSTOM_CONFIG
     
-    items = _make_request(BING_CUSTOM_ENDPOINT, "bingcustomsearch/v7.0/search", BING_CUSTOM_HEADERS, params)
+    items = _make_request(BING_CUSTOM_ENDPOINT, "v7.0/custom/search", BING_CUSTOM_HEADERS, params)
 #    pages = [
 #        {"url": a["url"], "name": a["name"], "description": a["snippet"]}
 #        for a in items["webPages"]["value"]
@@ -65,7 +65,7 @@ def find_doctor(query, market="en-IN",params=None):
 #    related = [a["text"] for a in items["relatedSearches"]["value"]]
 #    related = a[deeplinks]
 #    return {"pages": pages, "related": related}
-    return items
+    return items["webPages"]["value"]
 
 # Define a tool that searches specific sites for doctors.
 async def get_doctor(query: str) -> str:
