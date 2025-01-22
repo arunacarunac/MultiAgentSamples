@@ -69,7 +69,7 @@ async def run_team(query: str):
   # Create the token provider
     token_provider = get_bearer_token_provider(
     DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
-    AZURE_OPENAI_ENDPOINT="https://newsw-cen.openai.azure.com/"
+    AZURE_OPENAI_ENDPOINT=os.environ['AZURE_OPENAI_ENDPOINT']
 
     model_client = AzureOpenAIChatCompletionClient(
     azure_deployment="gpt-4o-sw",
