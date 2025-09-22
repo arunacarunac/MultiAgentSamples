@@ -1,4 +1,4 @@
-from typing import Callable, Sequence
+from typing import Callable, List, Sequence
 
 
 from autogen_agentchat.agents import BaseChatAgent
